@@ -1,0 +1,79 @@
+stdio.h>
+int main(){
+    char word [101];
+    scanf(“%s”, word);
+    int lenght = 0;
+    while (word[lenght] != 0){
+        lenght++;
+    }
+    int palindrome = 1;
+
+    for(int i = 0 ; i < lenght/2 ; i++){
+        if (word[i] != word [lenght-1-i])
+        {
+            palindrome = 0;
+            break;
+        }
+        
+    }
+    if (palindrome){
+        printf(“Palindrome”);
+    } else {
+        printf(“Not palindrome”);
+    }
+}
+
+nclude <stdio.h>
+int main (){
+    int R, C;
+    int matrix[10][10];
+    scanf(“%d %d”, &R, &C);
+    for (int i=0;i<R;i++) {
+        for (int j=0;j<C;j++) {
+            scanf(“%d”,&matrix[i][j]);
+        }
+    }
+
+    for (int j=0;j<C;j++) {
+        for (int i=0;i<R;i++) {
+            printf(“%d”,matrix[i][j]);
+            printf(“ “);
+        }
+        printf(“\n”);
+    }
+}
+
+
+t main(){
+    int R;
+    int C;
+
+    scanf(“%d %d”, &R, &C);
+    int matrix_A[10][10], matrix_B[10][10], matrix_C_sum[10][10];
+
+    for (int i = 0 ; i < R ; i++ ){
+        for(int j = 0 ; j < C ; j++){
+            scanf(“%d”, &matrix_A[i][j]);
+        }
+    }
+    for (int i = 0 ; i < R ; i++ ){
+        for(int j = 0 ; j < C ; j++){
+            scanf(“%d”, &matrix_B[i][j]);
+        }
+    }
+
+    for (int i = 0; i < R; i++) {
+        for (int j = 0; j < C; j++) {
+            matrix_C_sum[i][j] = matrix_A[i][j] + matrix_B[i][j];
+        }
+    }
+    for (int i = 0; i < R; i++) {
+        for (int j = 0; j < C; j++) {
+            printf(“%d”, matrix_C_sum[i][j]);
+            if (j < C - 1) printf(“ “);
+        }
+        printf(“\n”);
+    }
+    
+    return 0;
+}
