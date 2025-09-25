@@ -1,7 +1,7 @@
 def strength(passwords):
     ans = []
     for p in passwords:
-        if len(p) > 12:
+        if len(p) >= 12:
            ans.append("strong")
         elif len(p) < 8:
             ans.append("weak")
