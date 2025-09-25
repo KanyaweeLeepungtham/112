@@ -18,3 +18,5 @@ print(strength(["helloworld", "PythonRocks"]))
 print(strength(["abc12345", "Password1", "Hello2025"])) 
 
 print(strength([""])) 
+
+print(strength(["onlyletters", "Mix123", "GoodOne2023!", "Ultra$trongP@ssw0rd2025"]))
