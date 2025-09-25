@@ -1,10 +1,10 @@
 def strength(passwords):
     ans = []
     for p in passwords:
-        if len(p) >= 12:
-           ans.append("strong")
-        elif len(p) < 8:
+        if p == "" or p.isalpha() or len(p) < 8:
             ans.append("weak")
+        elif len(p) >= 12:
+            ans.append("strong")
         else:
             ans.append("ok")
     return ans
@@ -18,5 +18,3 @@ print(strength(["helloworld", "PythonRocks"]))
 print(strength(["abc12345", "Password1", "Hello2025"])) 
 
 print(strength([""])) 
-
-print(strength(["onlyletters", "Mix123", "GoodOne2023!", "Ultra$trongP@ssw0rd2025"]))
