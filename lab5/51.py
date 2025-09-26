@@ -4,7 +4,7 @@ def extract_words(text):
         char = w.strip(" "" ")
         if len(char) >= 4:
             words.append(char)
-    return words in text.split if len(cha
+    return words in text.split if len(char)>=4
 
 print(extract_words("Don't judge a book by its cover."))
 
