@@ -5,7 +5,15 @@ struct student {
     int age;
     float gpa;
 };
-
+float max = students[0].gpa;
+ void find_max()
+		{
+    for (int k = 1; k < 5; k++) {
+        if (students[k].gpa > max) {
+            max = students[k].gpa;
+        }
+    }
+		}
 int main() {
     struct student students[5];
     int i;
@@ -23,12 +31,7 @@ int main() {
 
     printf("Average GPA: %.2f\n", gpax);
 
-    float max = students[0].gpa;
-    for (int k = 1; k < 5; k++) {
-        if (students[k].gpa > max) {
-            max = students[k].gpa;
-        }
-    }
+
 
     printf("Max GPA: %.2f\n", max);
 
