@@ -7,7 +7,7 @@ struct student{
 };
 int main() {
     for (int i=0;i<5;i++){
-        scanf("%30s %d %.2f",&name,&age,&gpa);
+        scanf("%30s %d %.2f",&student[i].name,&student[i].age,&student[i].gpa);
     }
     float gapx;
     for(j=0 j<5;j++){
