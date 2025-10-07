@@ -5,7 +5,7 @@ struct student {
     int age;
     float gpa;
 };
-float max = students[0].gpa;
+float max = 0;
  void find_max()
 		{
     for (int k = 1; k < 5; k++) {
