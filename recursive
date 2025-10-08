@@ -24,3 +24,31 @@ int main() {
 
     return 0;
 }
+//
+//
+//
+#include <stdio.h>
+int parlin(char word[]) {
+    int len = 0;
+    while (word[len] != '\0') {
+        len++;
+    }
+    for (int i = 0; i < len / 2; i++) {
+        if (word[i] != word[len - 1 - i]) {
+            return 0; // ไม่เป็น palindrome
+        }
+    }
+
+    return 1; // เป็น palindrome
+}
+
+int main() {
+    char word[30];
+    scanf("%s", word);
+    // เรียกใช้ฟังก์ชันและตรวจผลลัพธ์ที่คืนมา
+    if (parlin(word)) {
+        printf("Palindrome\n");
+    } else {
+        printf("Not palindrome\n");
+    }
+}
