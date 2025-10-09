@@ -1,13 +1,14 @@
 #include <stdio.h>
-
-// ฟังก์ชัน recursive สำหรับหาค่าสูงสุดในอาร์เรย์
-int maxi_recursive(int a[], int n) {
+int maxi(int a[], int n) {
     if (n == 1) {
-        return a[0]; // base case
+        return a[0];
     }
-
-    int max_rest = maxi_recursive(a, n - 1); // หาค่าสูงสุดจาก n-1 ตัวแรก
-    return (a[n - 1] > max_rest) ? a[n - 1] : max_rest; // เปรียบเทียบกับตัวสุดท้าย
+    if (a[n - 1] > maxi(a, n - 1)){
+        return a[n-1];
+    }
+    else{
+        return maxi(a, n - 1);
+    }
 }
 
 int main() {
@@ -18,40 +19,32 @@ int main() {
     for (int i = 0; i < n; i++) {
         scanf("%d", &a[i]);
     }
-
-    int result = maxi_recursive(a, n);
-    printf("Maximum value: %d\n", result);
+    printf("Maximum value: %d\n", maxi(a, n));
 
     return 0;
 }
-
 #include <stdio.h>
-#include <string.h>
-
-// ฟังก์ชัน recursive ตรวจสอบว่าเป็น palindrome หรือไม่
-int parlin_recursive(char word[], int start, int end) {
+int parlin(char word[], int start, int end) {
     if (start >= end) {
-        return 1; // base case: ตัวอักษรชนกันแล้ว (หรือเลยกัน) แสดงว่าเป็น palindrome
+        return 1; 
     }
-
     if (word[start] != word[end]) {
-        return 0; // ถ้าไม่เท่ากัน ไม่เป็น palindrome
+        return 0; 
     }
-
-    // เรียกซ้ำโดยเลื่อนเข้าไปหาตรงกลาง
-    return parlin_recursive(word, start + 1, end - 1);
+    return parlin(word, start + 1, end - 1);
 }
 
 int main() {
     char word[30];
     scanf("%s", word);
-
-    int len = strlen(word);
-    if (parlin_recursive(word, 0, len - 1)) {
+    int len =0;
+    while (word[len] != '\0') {
+        len++;
+    }
+    if (parlin(word, 0, len - 1)) {
         printf("Palindrome\n");
     } else {
         printf("Not palindrome\n");
     }
-
     return 0;
 }
