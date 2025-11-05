@@ -1,0 +1,19 @@
+#include <stdio.h>
+
+int main() {
+    int a;
+    float b;
+    char c;
+    int *ap;
+    float *bp;
+    char *cp;
+
+    scanf("%d %f %c", &a, &b, &c);
+
+    ap = &a;
+    bp = &b;
+    cp = &c;
+
+    printf("%p %p %p\n", (void*)ap, (void*)bp, (void*)cp);
+    return 0;
+}
