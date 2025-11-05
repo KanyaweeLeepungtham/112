@@ -34,3 +34,35 @@ int main() {
     }
     printf("%d",sum);
 }
+
+อย่า
+#include <stdio.h>
+#include <limits.h>
+
+int main() {
+    int num;
+    scanf("%d", &num);
+    int n[num];
+    for (int i = 0; i < num; i++) {
+        scanf("%d", &n[i]);
+    }
+
+    int *np = n; // pointer ชี้ไปที่ array
+    int max = INT_MIN, sec = INT_MIN;
+
+    for (int i = 0; i < num; i++) {
+        if (*(np + i) > max) {
+            sec = max;
+            max = *(np + i);
+        } else if (*(np + i) > sec && *(np + i) < max) {
+            sec = *(np + i);
+        }
+    }
+
+    if (sec == INT_MIN)
+        printf("No second largest number\n");
+    else
+        printf("Second largest = %d\n", sec);
+
+    return 0;
+}
