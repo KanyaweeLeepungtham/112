@@ -1,22 +1,20 @@
-#include <stdio.h>
+include <stdio.h>
 
 int main() {
-    int a;
-    float b;
-    char c;
+    int a=42;
+    float b=3.14;
+    char word='A';
     int *ap;
     float *bp;
-    char *cp;
-
-    scanf("%d %f %c", &a, &b, &c);
-
+    char *wp;
     ap = &a;
     bp = &b;
-    cp = &c;
+    wp = &word;
 
-    printf("%p %p %p\n", (void*)ap, (void*)bp, (void*)cp);
+    printf("int: %d at %p\n float: %f at %p\n char: %c at %p",a,b,word ,(void*)ap, (void*)bp, (void*)wp);
     return 0;
 }
+
 
 2.
 #include <stdio.h>
@@ -29,40 +27,31 @@ int main() {
         scanf("%d",&n[i]);
     }
     for(int i=0;i<num;i++){
-       np= &n[i] ;
-       sum = sum+n[i];
+       np= *n[i] ;
+       sum = sum+np;
     }
     printf("%d",sum);
 }
-
-อย่า
-#include <stdio.h>
-#include <limits.h>
-
-int main() {
+3.#include<stdio.h>
+int main(){
     int num;
-    scanf("%d", &num);
+    scanf("%d",&num);
     int n[num];
-    for (int i = 0; i < num; i++) {
-        scanf("%d", &n[i]);
+    for(int i=0;i<num;i++){
+        scanf("%d",&n[i]);
+        
     }
-
-    int *np = n; // pointer ชี้ไปที่ array
-    int max = INT_MIN, sec = INT_MIN;
-
-    for (int i = 0; i < num; i++) {
-        if (*(np + i) > max) {
-            sec = max;
-            max = *(np + i);
-        } else if (*(np + i) > sec && *(np + i) < max) {
-            sec = *(np + i);
+    int *np=n;
+    int max = *np;
+    int sec = -1000000;
+    for(np = n; np<n+num ;np++){
+        if(*np > max){
+            sec=max;
+            max=*np;
+        }
+        else if(*np>sec && *np<max){
+            sec = *np;
         }
     }
-
-    if (sec == INT_MIN)
-        printf("No second largest number\n");
-    else
-        printf("Second largest = %d\n", sec);
-
-    return 0;
+    printf("Second largest = %d",sec);
 }
